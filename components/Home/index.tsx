@@ -21,7 +21,7 @@ export default function Home() {
                         layout="fill"
                     />
                 </div>
-                <Navbar className="sticky" />
+                <Navbar/>
                 <HomeLayout>
                         <LandingPage />
                 </HomeLayout>
