@@ -1,0 +1,10 @@
+.mainContainer {
+    width: 80%;
+}
+
+.parentContainer {
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+    padding: 5rem 0;
+}

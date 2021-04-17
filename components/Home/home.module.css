@@ -1,0 +1,31 @@
+/* .fullPageBackground {
+    background: url(../../public/images/home_profile.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.fullPageBackground2 {
+    background: url(../../public/images/Projects_BG.svg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+.outerContainer {
+    position: relative;
+}
+
+.background {
+    top: 0;
+    left: 0;
+    position: absolute;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
