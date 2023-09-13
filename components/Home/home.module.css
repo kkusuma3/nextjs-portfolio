@@ -16,6 +16,8 @@
 
 .outerContainer {
     position: relative;
+    width: 100vw;
+    height: auto;
 }
 
 .background {

@@ -1,0 +1,31 @@
+.card__background {
+    z-index: -1;
+    transition: transform .5s, filter .5s ease-in-out;
+    filter: blur(.25px);
+    transform: scale(1);
+}
+
+.card__background:hover {
+    filter: blur(0);
+    transform: scale(.9);
+}
+
+.card__overlay {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: background-color .1s ease-in-out;
+}
+
+.card__overlay_hovered {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    opacity: 0.75;
+}

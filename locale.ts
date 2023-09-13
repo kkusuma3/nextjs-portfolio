@@ -10,6 +10,7 @@ export const STRING_BUTTON_RESUME: string = 'Resume to my Resume';
 export const STRING_STUFF: string = 'Stuff I';
 export const STRING_ON: string = 'On';
 export const STRING_WORKED: string = 'worked';
+export const STRING_PROJECTS_AA_WEDDING: string = 'AA Wedding Website';
 export const STRING_PROJECTS_MONGGO_IO: string = 'Monggo.io';
 export const STRING_PROJECTS_KARYA_ASIH: string = 'Karya Asih';
 export const STRING_GATSBY: string = 'Gatsby';
@@ -29,7 +30,7 @@ export const STRING_PRAYER_REQUEST_DESC: string = 'I’m a Christian and I belie
 export const STRING_FORM_NAME: string = 'Name (optional):';
 export const STRING_FORM_PRAYER: string = 'How can I pray for you?';
 export const STRING_FORM_SUBMIT: string = 'Submit';
-export const STRING_COPYRIGHT: string = 'Copyright 2020, All Rights Reserved. Made by Kevin Kusuma';
+export const STRING_COPYRIGHT: string = 'Copyright 2023, All Rights Reserved. Made by Kevin Kusuma';
 export const STRING_BACK_TO_TOP: string = 'Back to Top';
 export const STRING_RESUME: string = 'Resume';
 

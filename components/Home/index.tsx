@@ -6,39 +6,44 @@ import LandingPage from './Landing';
 import HomeLayout from './Layout';
 import About from './About';
 import Contact from './Contact';
+import NewProjects from './New Projects';
 
 export default function Home() {
     return (
         <>
-            <div>
-                <div className={styles.background}>
-                    <Image
-                        src="/images/home_profile.jpg"
-                        alt="Wave background"
-                        priority
-                        objectFit="cover"
-                        quality={100}
-                        layout="fill"
-                    />
-                </div>
+            <div className={styles.outerContainer}>
+                <Image
+                    src="/images/home_profile.jpg"
+                    alt="Background image of Kevin Kusuma"
+                    priority
+                    quality={100}
+                    fill
+                    sizes="100vw"
+                    style={{
+                        objectFit: 'cover',
+                        zIndex: -1,
+                    }}
+                />
                 <Navbar/>
                 <HomeLayout>
                         <LandingPage />
                 </HomeLayout>
             </div>
             <div className={styles.outerContainer}>
-                <div className={styles.background}>
-                    <Image
-                        src="/images/Wave_BG.svg"
-                        alt="Wave background"
-                        objectFit="cover"
-                        quality={100}
-                        layout="fill"
-                    />
-                </div>
-                <hr className="border border-blue-sapphire"/>
+                <Image
+                    src="/images/Wave_BG.svg"
+                    alt="Wave background"
+                    quality={50}
+                    fill
+                    sizes="100vw"
+                    style={{
+                        objectFit: 'cover',
+                        zIndex: -1,
+                    }}
+                />
+                <hr className="border border-blue-sapphire my-2 lg:my-6"/>
                 <HomeLayout>
-                    <Projects />
+                    <NewProjects />
                 </HomeLayout>
             </div>
             <div className={styles.outerContainer}>
@@ -47,15 +52,17 @@ export default function Home() {
                 </HomeLayout>
             </div>
             <div className={styles.outerContainer}>
-                <div className={styles.background}>
-                    <Image
-                        src="/images/Wave_BG_Contact.svg"
-                        alt="Wave background"
-                        objectFit="cover"
-                        quality={100}
-                        layout="fill"
-                    />
-                </div>
+                <Image
+                    src="/images/Wave_BG_Contact.svg"
+                    alt="Wave background"
+                    quality={55}
+                    sizes="100vw"
+                    fill
+                    style={{
+                        objectFit: 'cover',
+                        zIndex: -1,
+                    }}
+                />
                 <HomeLayout>
                     <Contact />
                 </HomeLayout>

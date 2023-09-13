@@ -5,13 +5,14 @@ import {
     FaExternalLinkAlt,
     FaReact
 } from 'react-icons/fa';
-import { GrGatsbyjs } from 'react-icons/gr';
+import { GrGatsbyjs, GrNext } from 'react-icons/gr';
 import { SiSvelte } from 'react-icons/si';
 import { useMediaQuery } from 'react-responsive';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import {
     STRING_ON,
+    STRING_PROJECTS_AA_WEDDING,
     STRING_PROJECTS_KARYA_ASIH,
     STRING_PROJECTS_MONGGO_IO,
     STRING_STUFF,
@@ -34,6 +35,29 @@ const ProjectsList: Array<{
     }>,
     description: string
 }> = [
+    {
+        id: 0,
+        title: STRING_PROJECTS_AA_WEDDING,
+        img: {
+            src: "/images/Project_monggo.png",
+            alt: "Project 1 AA Wedding"
+        }, 
+        github: "https://github.com/kkusuma3/AA-Wedding",
+        link: "https://aa-wedding.vercel.app/",
+        languages: [
+            {
+                id: 1,
+                name: 'React',
+                icon: <FaReact />,
+            },
+            {
+                id: 2,
+                name: 'NextJS',
+                icon: <GrNext />,
+            }
+        ],
+        description: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+    },
     {
         id: 1,
         title: STRING_PROJECTS_MONGGO_IO,
@@ -59,6 +83,29 @@ const ProjectsList: Array<{
     },
     {
         id: 2,
+        title: STRING_PROJECTS_MONGGO_IO,
+        img: {
+            src: "/images/Project_monggo.png",
+            alt: "Project 1 Monggo IO"
+        }, 
+        github: "https://github.com/kkusuma3/monggo-io-landing",
+        link: "https://ini.monggo.io/",
+        languages: [
+            {
+                id: 1,
+                name: 'React',
+                icon: <FaReact />,
+            },
+            {
+                id: 2,
+                name: 'Gatsby',
+                icon: <GrGatsbyjs />,
+            }
+        ],
+        description: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+    },
+    {
+        id: 3,
         title: STRING_PROJECTS_KARYA_ASIH,
         img: {
             src: "/images/Project_monggo.png",
