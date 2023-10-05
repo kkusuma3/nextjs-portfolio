@@ -41,6 +41,7 @@ export default function Timeline() {
                                             src="/images/Timeline_circle.svg"
                                             width={15}
                                             height={15}
+                                            alt="Small timeline circles"
                                         />
                                     </label>
                                     <span className="text-lg text-blue-sapphire">{time.year}</span>
@@ -51,6 +52,7 @@ export default function Timeline() {
                                             src="/images/Timeline_vertical_line.svg"
                                             width={1}
                                             height={50}
+                                            alt="Small timeline vertical lines"
                                         />
                                 }
                             </>

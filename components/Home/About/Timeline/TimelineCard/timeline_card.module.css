@@ -1,7 +1,7 @@
-.cardPicture {
+.timeline__card_picture {
     position: absolute;
     top: 10%;
-    left: -7%;
+    left: -5%;
     height: 10rem;
     width: 10rem;
     border-radius: 100%;

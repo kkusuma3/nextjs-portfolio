@@ -1,0 +1,11 @@
+.vertical_line {
+    border-left: 3px solid #66A6CA;
+    height: 20px;
+    width: 5%;
+}
+
+@media only screen and (max-width: 600px) {
+    .vertical_line {
+        display:none;
+    }
+}

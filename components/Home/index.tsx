@@ -6,7 +6,7 @@ import LandingPage from './Landing';
 import HomeLayout from './Layout';
 import About from './About';
 import Contact from './Contact';
-import NewProjects from './New Projects';
+import NewProjects from './Projects';
 
 export default function Home() {
     return (

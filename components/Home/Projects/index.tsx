@@ -1,130 +1,16 @@
 import { useEffect } from 'react'; 
-import Image from 'next/image';
-import {
-    FaGithub,
-    FaExternalLinkAlt,
-    FaReact
-} from 'react-icons/fa';
-import { GrGatsbyjs, GrNext } from 'react-icons/gr';
-import { SiSvelte } from 'react-icons/si';
 import { useMediaQuery } from 'react-responsive';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import {
     STRING_ON,
-    STRING_PROJECTS_AA_WEDDING,
-    STRING_PROJECTS_KARYA_ASIH,
-    STRING_PROJECTS_MONGGO_IO,
     STRING_STUFF,
     STRING_WORKED
 } from "../../../locale";
+import { ProjectsList } from './data';
+import ProjectCard from './ProjectCard';
 
-const ProjectsList: Array<{
-    id: number,
-    title: string,
-    img: {
-        src: string,
-        alt: string
-    },
-    github: string,
-    link: string,
-    languages: Array<{
-        id: number,
-        name: string,
-        icon: React.ReactNode
-    }>,
-    description: string
-}> = [
-    {
-        id: 0,
-        title: STRING_PROJECTS_AA_WEDDING,
-        img: {
-            src: "/images/Project_monggo.png",
-            alt: "Project 1 AA Wedding"
-        }, 
-        github: "https://github.com/kkusuma3/AA-Wedding",
-        link: "https://aa-wedding.vercel.app/",
-        languages: [
-            {
-                id: 1,
-                name: 'React',
-                icon: <FaReact />,
-            },
-            {
-                id: 2,
-                name: 'NextJS',
-                icon: <GrNext />,
-            }
-        ],
-        description: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-    },
-    {
-        id: 1,
-        title: STRING_PROJECTS_MONGGO_IO,
-        img: {
-            src: "/images/Project_monggo.png",
-            alt: "Project 1 Monggo IO"
-        }, 
-        github: "https://github.com/kkusuma3/monggo-io-landing",
-        link: "https://ini.monggo.io/",
-        languages: [
-            {
-                id: 1,
-                name: 'React',
-                icon: <FaReact />,
-            },
-            {
-                id: 2,
-                name: 'Gatsby',
-                icon: <GrGatsbyjs />,
-            }
-        ],
-        description: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-    },
-    {
-        id: 2,
-        title: STRING_PROJECTS_MONGGO_IO,
-        img: {
-            src: "/images/Project_monggo.png",
-            alt: "Project 1 Monggo IO"
-        }, 
-        github: "https://github.com/kkusuma3/monggo-io-landing",
-        link: "https://ini.monggo.io/",
-        languages: [
-            {
-                id: 1,
-                name: 'React',
-                icon: <FaReact />,
-            },
-            {
-                id: 2,
-                name: 'Gatsby',
-                icon: <GrGatsbyjs />,
-            }
-        ],
-        description: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-    },
-    {
-        id: 3,
-        title: STRING_PROJECTS_KARYA_ASIH,
-        img: {
-            src: "/images/Project_monggo.png",
-            alt: "Project 2 Karya Asih"
-        }, 
-        github: "https://github.com/kkusuma3/Karya-Asih-Svelte",
-        link: "https://karya-asih-svelte.kevindwiputrak.vercel.app/",
-        languages: [
-            {
-                id: 1,
-                name: 'Svelte',
-                icon: <SiSvelte />
-            }
-        ],
-        description: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-    }
-]
-
-export default function Projects() {
+export default function NewProjects() {
     const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
 
     useEffect(() => {
@@ -146,68 +32,17 @@ export default function Projects() {
                 <span className="font-medium">{STRING_WORKED}</span>
                 <span className="font-light">{STRING_ON}</span>
             </div>
-            {
-                ProjectsList.map(project => (
-                    <div className="flex flex-row flex-wrap lg:flex-nowrap space-x-5" key={project.id}>
-                        {
-                            // Odd numbered projects means pic on the left and vice versa
-                            (isTabletOrMobile || project.id % 2 !== 0) && 
-                            <div className="w-full md:w-1/2" data-aos="zoom-in-right">
-                                <Image
-                                    src={project.img.src}
-                                    alt={project.img.src}
-                                    width={500}
-                                    height={400}
-                                    quality={100}
-                                />
-                            </div>
-                        }
-                        <div className="w-full md:w-1/2" data-aos="fade-right" data-aos-delay="400">
-                            <div className="flex flex-col space-y-5">
-                                <div className="flex flex-row items-center space-x-3">
-                                    <a className="text-3xl lg:text-4xl underline hover:text-opacity-80" href={project.link} target="blank">
-                                        {project.title}
-                                    </a>
-                                    <a className="p-1 bg-white rounded-full hover:shadow-xl" href={project.github} target="blank">
-                                        <FaGithub className="text-2xl"/>
-                                    </a>
-                                    <a className="p-1 bg-white rounded-full hover:shadow-xl" href={project.link} target="blank">
-                                        <FaExternalLinkAlt className="text-2xl"/>
-                                    </a>
-                                </div>
-                                <div className="flex flex-row items-center space-x-3 text-white">
-                                    {
-                                        project.languages.map(lang => {
-                                            return (
-                                                <div key={lang.id} className="flex flex-row items-center justify-between bg-blue-sapphire px-4 py-2 rounded-full space-x-2 tex-md lg:text-lg">
-                                                    <span>{lang.name}</span>
-                                                    {lang.icon}
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
-                                <p className="text-md">
-                                    {project.description}    
-                                </p>
-                            </div>
+            <hr className="border-2 rounded-md border-blue-sapphire my-2 md:my-4 w-1/6 md:w-1/12"/>
+            <div className="flex flex-row flex-wrap justify-between md:space-x-4">
+                {
+                    ProjectsList.map(project => (
+                        <div className="basis-1/2 py-4 md:py-8">
+                            <ProjectCard project={project} />
                         </div>
-                        {
-                            // Odd numbered projects means pic on the left and vice versa
-                            (!isTabletOrMobile && project.id % 2 === 0) && 
-                            <div className="w-full md:w-1/2" data-aos="zoom-in-left">
-                                <Image
-                                    src={project.img.src}
-                                    alt={project.img.src}
-                                    width={500}
-                                    height={400}
-                                    quality={100}
-                                />
-                            </div>
-                        }
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
+
         </div>
     );
 }

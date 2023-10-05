@@ -15,7 +15,7 @@ export const ProjectsList: Array<Project> = [
         id: 0,
         title: STRING_PROJECTS_AA_WEDDING,
         img: {
-            src: "/images/Project_monggo.png",
+            src: "/images/Projects/AA_Wedding.png",
             alt: "Project 1 AA Wedding"
         }, 
         github: "https://github.com/kkusuma3/AA-Wedding",

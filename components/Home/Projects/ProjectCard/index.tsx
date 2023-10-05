@@ -16,14 +16,20 @@ const ProjectCard: React.FC<ProjectProps> = ( { project }: ProjectProps) => {
             onMouseEnter={() => setIsCardHovered(true)}
             onMouseLeave={() => setIsCardHovered(false)}
         >
-            <Image
-                src={project.img.src}
-                alt={project.img.alt}
-                width={500}
-                height={400}
-                quality={100}
-                className={styles.card__background}
-            />
+            {
+                isCardHovered ? 
+                <video autoPlay loop className={styles.card__background}>
+                    <source src="/videos/aawedding-record.webm" />
+                </video> :
+                <Image
+                    src={project.img.src}
+                    alt={project.img.alt}
+                    width={600}
+                    height={400}
+                    quality={80}
+                    className={styles.card__background}
+                />
+            }
             <div className={isCardHovered ? styles.card__overlay_hovered : styles.card__overlay}>
                 <div className="flex flex-col p-2 md:p-4">
                     <div className="flex flex-row justify-between w-full">

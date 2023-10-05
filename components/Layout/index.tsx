@@ -16,6 +16,9 @@ export default function Layout({
         <div>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Catamaran&family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
                 <meta
                     name="description"
                     content="Kevin Kusuma's personal website"
@@ -28,9 +31,11 @@ export default function Layout({
                 />
                 <meta name="og:title" content={siteTitle} />
             </Head>
-            { !home && <Nav /> }
-            <main>{children}</main>
-            <Footer />
+            <div className="font-jakarta-sans">
+                { !home && <Nav /> }
+                <main>{children}</main>
+                <Footer />
+            </div>
         </div>
     );
 }
