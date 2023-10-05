@@ -1,16 +1,23 @@
+import { useEffect } from "react";
+import AOS from 'aos';
 import {
     STRING_WHO,
     STRING_I_AM,
-    STRING_TIMELINE,
     STRING_PIC_GALLERY_TITLE,
-    STRING_RESUME,
 } from "../../../locale";
 import AboutCard from './About';
-import Timeline from './Timeline';
 import PictureGallery from './PictureGallery';
-import Resume from "./Resume";
 
 export default function About() {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+        AOS.refresh();
+    }, []);
+    
     return (
         <div
             id="about"

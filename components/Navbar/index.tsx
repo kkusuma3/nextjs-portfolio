@@ -1,32 +1,29 @@
 import { useState, useEffect } from 'react';
-import Link from "next/link";
 import Image from 'next/image';
 import Headroom from 'react-headroom';
+import { Link } from 'react-scroll';
 import {
-    STRING_HOME_TITLE,
     STRING_CONTACT,
     STRING_ABOUT,
     STRING_BLOG,
     STRING_PROJECTS
 } from '../../locale';
+import { headerLinks } from './data';
 
-const headerLinks: Array<{
-    label: string;
-    link: string;
-}> = [
-    {
-        label: STRING_PROJECTS,
-        link: "#projects"
-    },
-    {
-        label: STRING_ABOUT,
-        link: "#about"
-    },
-    {
-        label: STRING_BLOG,
-        link: "/"
-    },
-];
+const MobileNav = ( isMenuClicked ) => (
+    <div className={isMenuClicked ? "w-full absolute md:hidden" : "w-full hidden md:hidden"}>
+        <div className={isMenuClicked ? "bg-white flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
+            <a href="#projects" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_PROJECTS}</a>
+
+            <a href="#about" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_ABOUT}</a>
+
+            <a href="#" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_BLOG}</a>
+
+            <a href="#contact" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_CONTACT}</a>
+
+        </div>
+    </div>
+)
 
 export default function Nav() {
     const [ isScrolled, setIsScrolled ] = useState(false);
@@ -56,11 +53,19 @@ export default function Nav() {
             <header>
                 <nav
                     id="nav"
-                    className={navClassName(isScrolled, isMenuClicked, "transition duration-500 bg-transparent mb-5 md:mb-10 mx-auto px-6 lg:px-48")}
+                    className={navClassName(isScrolled, isMenuClicked, "transition duration-500 bg-transparent mb-5 md:mb-10 mx-auto px-6 lg:px-48 relative")}
                 >
                     <ul className="flex flex-wrap w-full justify-between items-center px-4 md:px-8 md:mb-4">
                         <li>
-                            <Link href="/" className="text-maroon text-4xl font-medium">
+                            <Link
+                                activeClass="active"
+                                to="home"
+                                className="cursor-pointer"
+                                spy
+                                smooth
+                                offset={-500}
+                                duration={500}
+                            >
                                 <Image
                                     src="/images/Landing/home_logo_transparent.png"
                                     alt="Picture of Kevin Kusuma Logo"
@@ -74,22 +79,37 @@ export default function Nav() {
                         </li>
                         <li className="flex justify-between items-center space-x-10">
                             <ul className="hidden md:flex space-x-10">
-                                {headerLinks.map(({ label, link }) => (
-                                    <li key={`${label}`}>
-                                        <a
-                                            href={link}
-                                            className="text-maroon no-underline text-lg cursor-pointer"
-                                        >
-                                            {label}
-                                        </a>
-                                    </li>
-                                ))}
+                                {headerLinks.map(({ label, link, isMobile }) => {
+                                    if (!isMobile) {
+                                        return (
+                                            <li key={label}>
+                                                <Link
+                                                    activeClass="active"
+                                                    to={link}
+                                                    className="text-maroon no-underline text-lg cursor-pointer"
+                                                    spy
+                                                    smooth
+                                                    duration={500}
+                                                >
+                                                    {label}
+                                                </Link>
+                                            </li>
+                                        )
+                                    }
+                                })}
                             </ul>
-                            <a href="#contact" className="hidden md:flex">
+                            <Link
+                                activeClass="active"
+                                to="contact"
+                                className="hidden md:flex"
+                                spy
+                                smooth
+                                duration={750}
+                            >
                                 <button className="btn-maroon cursor-pointer">
                                     {STRING_CONTACT}
                                 </button>
-                            </a>
+                            </Link>
                         </li>
                         <div className="-mr-2 flex md:hidden">
                             <button
@@ -108,17 +128,23 @@ export default function Nav() {
                             </button>
                         </div>
                     </ul>
-                    <div className={isMenuClicked ? "w-full absolute md:hidden" : "w-full hidden md:hidden"}>
-                        <div className={isMenuClicked ? "bg-white flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
-                            <a href="#projects" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_PROJECTS}</a>
-
-                            <a href="#about" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_ABOUT}</a>
-
-                            <a href="#" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_BLOG}</a>
-
-                            <a href="#contact" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_CONTACT}</a>
-
-                        </div>
+                    <div className={isMenuClicked ? "w-full absolute left-0 md:hidden" : "w-full hidden"}>
+                        <ul className={isMenuClicked ? "bg-white flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500 w-full" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
+                            {headerLinks.map(({ label, link }) => (
+                                <li key={label}>
+                                    <Link
+                                        activeClass="active"
+                                        to={link}
+                                        className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                        spy
+                                        smooth
+                                        duration={700}
+                                    >
+                                        {label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </nav>
             </header>

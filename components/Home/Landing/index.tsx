@@ -56,12 +56,13 @@ const homeIcons: Array<{
 export default function LandingPage(){
 
     useEffect(() => {
-        AOS.init();
-        AOS.refresh();
+        AOS.init({
+            duration: 1200
+        });
     }, [])
 
     return (
-        <div className="flex flex-col justify-center py-28 text-pale-cyan" data-aos="fade-up">
+        <div id="home" className="flex flex-col justify-center py-28 text-pale-cyan" data-aos="fade-up">
             <div className="flex flex-col my-10 lg:my-8 space-y-5">
                 <span className="basis-40 text-8xl lg:text-9xl text-center lg:text-left font-bebas">{STRING_HELLO_WORLD}</span>
                 <div className="flex flex-row text-2xl md:text-4xl space-x-3 justify-center lg:justify-start">

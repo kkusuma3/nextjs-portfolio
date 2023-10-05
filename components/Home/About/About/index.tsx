@@ -1,6 +1,5 @@
 import { useEffect } from 'react'; 
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import AOS from 'aos';
 import "aos/dist/aos.css";
 import { RESUME_S3_URL } from '../../../../locale';
 import styles from './about_card.module.css';
@@ -9,18 +8,9 @@ import Skills from './Skills';
 
 export default function AboutSection() {
 
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true
-        });
-        AOS.refresh();
-    }, []);
-
     return (
         <div className="flex flex-col text-blue-sapphire">
-            <div className="flex flex-row flex-wrap lg:flex-nowrap py-10 md:py-20 space-x-6">
+            <div className="flex flex-row flex-wrap lg:flex-nowrap py-10 md:py-20 space-x-6" data-aos="zoom-out-down">
                 <div className={styles.grid__image}>
                         <Image
                             src="/images/About_Kevin.jpg"

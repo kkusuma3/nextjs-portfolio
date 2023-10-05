@@ -29,8 +29,11 @@ const SkillsListSection: React.FC<skillsListProps> = ({ isProfessional }: skills
                         <div className="w-full flex flex-row flex-wrap">
                             {
                                 skill.skillsList.map((skill) => (
-                                    <div className="flex flex-row border border-white bg-blue-sapphire rounded-md text-white justify-around items-center
-                                    text-lg lg:text-xl font-catamaran m-1 md:m-2 hover:text-blue-sapphire hover:bg-white hover:border-blue-sapphire">
+                                    <div
+                                        className="flex flex-row border border-white bg-blue-sapphire rounded-md text-white justify-around items-center
+                                        text-lg lg:text-xl font-catamaran m-1 md:m-2 hover:text-blue-sapphire hover:bg-white hover:border-blue-sapphire"
+                                        data-aos="flip-left"
+                                    >
                                         <span className="px-2">{skill.name}</span>
                                         <span className="px-2">{skill.icon}</span>
                                     </div>

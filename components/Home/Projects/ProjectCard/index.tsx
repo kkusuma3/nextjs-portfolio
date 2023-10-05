@@ -48,7 +48,7 @@ const ProjectCard: React.FC<ProjectProps> = ( { project }: ProjectProps) => {
                             </a>
                         </div>
                     </div>
-                    <span className='text-sm md:text-lg'>{project.description}</span>
+                    <span className='text-sm md:text-md'>{project.description}</span>
                 </div>
             </div>
         </div>
