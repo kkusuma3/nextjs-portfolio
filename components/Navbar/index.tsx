@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Link from "next/link";
+import Image from 'next/image';
 import Headroom from 'react-headroom';
 import {
     STRING_HOME_TITLE,
@@ -55,12 +56,20 @@ export default function Nav() {
             <header>
                 <nav
                     id="nav"
-                    className={navClassName(isScrolled, isMenuClicked, "transition duration-500 bg-transparent mb-10 mx-auto px-12 lg:px-48")}
+                    className={navClassName(isScrolled, isMenuClicked, "transition duration-500 bg-transparent mb-5 md:mb-10 mx-auto px-6 lg:px-48")}
                 >
-                    <ul className="flex flex-wrap w-full justify-between items-center px-4 md:px-8 py-4 md:mb-4">
+                    <ul className="flex flex-wrap w-full justify-between items-center px-4 md:px-8 md:mb-4">
                         <li>
                             <Link href="/" className="text-maroon text-4xl font-medium">
-                                {STRING_HOME_TITLE}
+                                <Image
+                                    src="/images/Landing/home_logo_transparent.png"
+                                    alt="Picture of Kevin Kusuma Logo"
+                                    sizes="(max-width: 768px) 70px, 1110px"
+                                    width={90}
+                                    height={90}
+                                    quality={80}
+                                    priority
+                                />
                             </Link>
                         </li>
                         <li className="flex justify-between items-center space-x-10">

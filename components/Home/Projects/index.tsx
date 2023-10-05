@@ -3,9 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import {
-    STRING_ON,
-    STRING_STUFF,
-    STRING_WORKED
+    STRING_STUFF_I_WORKED_ON,
 } from "../../../locale";
 import { ProjectsList } from './data';
 import ProjectCard from './ProjectCard';
@@ -25,15 +23,13 @@ export default function NewProjects() {
     return (
         <div
             id="projects"
-            className="flex flex-col space-y-12 text-blue-sapphire"
+            className="flex flex-col text-blue-sapphire"
         >
-            <div className="flex flex-row space-x-2 text-4xl lg:text-5xl">
-                <span className="font-light">{STRING_STUFF}</span>
-                <span className="font-medium">{STRING_WORKED}</span>
-                <span className="font-light">{STRING_ON}</span>
+            <div className="flex flex-row space-x-2 text-3xl lg:text-5xl">
+                <span className="font-light">{STRING_STUFF_I_WORKED_ON}</span>
             </div>
             <hr className="border-2 rounded-md border-blue-sapphire my-2 md:my-4 w-1/6 md:w-1/12"/>
-            <div className="flex flex-row flex-wrap justify-between md:space-x-4">
+            <div className="flex flex-row flex-wrap justify-between">
                 {
                     ProjectsList.map(project => (
                         <div className="basis-1/2 py-4 md:py-8">

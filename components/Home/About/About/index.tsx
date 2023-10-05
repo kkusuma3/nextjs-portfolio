@@ -37,9 +37,11 @@ export default function AboutSection() {
                         <span className="text-xl md:text-2xl font-semibold">
                             Name’s Kevin, nice to meet you! 👋
                         </span>
-                        <span className="text-md md:text-lg">
-                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                        </span>
+                        <p className="text-md md:text-lg">
+                            I am a <strong>child of God ✝️</strong> who happens to be a <strong>software engineer 💻</strong>  who was born and raised in Jakarta, Indonesia and currently residing in Atlanta, GA.
+                            I love gaming 🎮 and sports ⚽ among other things but I can also <strong>take your organization to the next level 🚀</strong> and if you want to know more about my professional journey, please <i>view my resume</i> below this paragraph.
+                            Other than that, I like dabbling with websites, apps and anything tech so feel free to hit me up on my socials to see more of my passion projects. In the meantime, please enjoy this page-long journey of exploring about myself!
+                        </p>
                         <a
                             href={RESUME_S3_URL}
                             target="_blank"

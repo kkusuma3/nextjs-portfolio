@@ -1,10 +1,7 @@
 export interface Project {
     id: number,
     title: string,
-    img: {
-        src: string,
-        alt: string
-    },
+    animationSrc: object,
     github: string,
     link: string,
     languages: Array<{
