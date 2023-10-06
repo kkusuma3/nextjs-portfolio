@@ -1,9 +1,7 @@
-import { useEffect } from 'react'; 
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import "aos/dist/aos.css";
 import { RESUME_S3_URL } from '../../../../locale';
 import styles from './about_card.module.css';
-import Image from 'next/image';
 import Skills from './Skills';
 
 export default function AboutSection() {
