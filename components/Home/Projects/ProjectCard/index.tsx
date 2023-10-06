@@ -1,4 +1,4 @@
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import { Project } from '../types';
 import React, { useState } from 'react';
 import styles from "./projectcard.module.css";
@@ -14,26 +14,42 @@ const ProjectCard: React.FC<ProjectProps> = ( { project }: ProjectProps) => {
     const { width } = useWindowDimensions();
     const isTabletOrMobile = width < 780;
 
+    const style = {
+        height: "50vh"
+    };
 
-    const defaultOptions = {
-        loop: true,
-        autoplay: isTabletOrMobile ? true : isCardHovered,
-        animationData: project.animationSrc,
-        rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice"
-        }
+    const interactivity = {
+        mode: "scroll",
+        actions: [
+        //   {
+        //     visibility: [0, 0.2],
+        //     type: "stop",
+        //     frames: [0],
+        //   },
+          {
+            visibility: [0.5, 1],
+            type: "play",
+          },
+        //   {
+        //     visibility: [0.2, 1.0],
+        //     type: "loop",
+        //     frames: [45, 100],
+        //   },
+        ],
     };
 
     return (
         <div 
-            className="w-full relative border-2 rounded-lg cursor-pointer"
+            className="w-full lg:relative border-2 rounded-lg cursor-pointer"
             onMouseEnter={() => setIsCardHovered(true)}
             onMouseLeave={() => setIsCardHovered(false)}
         >
-            <Lottie 
-                options={defaultOptions}
-                height={isTabletOrMobile? "50vh" : "40vh"}
-                isPaused={isTabletOrMobile ? false : !isCardHovered}
+            <Lottie
+                animationData={project.animationSrc}
+                loop
+                autoplay={isTabletOrMobile ? true : isCardHovered}
+                style={isTabletOrMobile ? undefined : style}
+                interactivity={interactivity}
             />
             <div className={isCardHovered ? styles.card__overlay_hovered : styles.card__overlay}>
                 <div className="flex flex-col p-2 md:p-4">

@@ -17,3 +17,13 @@
     background-color: rgba(255, 255, 255, 0.6);
     opacity: 0.75;
 }
+
+@media only screen and (max-width: 600px) {
+    .card__overlay {
+        position: static;
+    }
+
+    .card__overlay_hovered {
+        position: absolute;
+    }
+}
