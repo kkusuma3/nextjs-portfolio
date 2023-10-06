@@ -4,26 +4,24 @@ import Headroom from 'react-headroom';
 import { Link } from 'react-scroll';
 import {
     STRING_CONTACT,
-    STRING_ABOUT,
-    STRING_BLOG,
-    STRING_PROJECTS
 } from '../../locale';
 import { headerLinks } from './data';
+import styles from "./navbar.module.css";
 
-const MobileNav = ( isMenuClicked ) => (
-    <div className={isMenuClicked ? "w-full absolute md:hidden" : "w-full hidden md:hidden"}>
-        <div className={isMenuClicked ? "bg-white flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
-            <a href="#projects" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_PROJECTS}</a>
+// const MobileNav = ( isMenuClicked ) => (
+//     <div className={isMenuClicked ? "w-full absolute md:hidden" : "w-full hidden md:hidden"}>
+//         <div className={isMenuClicked ? "bg-white flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
+//             <a href="#projects" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_PROJECTS}</a>
 
-            <a href="#about" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_ABOUT}</a>
+//             <a href="#about" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_ABOUT}</a>
 
-            <a href="#" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_BLOG}</a>
+//             <a href="#" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_BLOG}</a>
 
-            <a href="#contact" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_CONTACT}</a>
+//             <a href="#contact" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_CONTACT}</a>
 
-        </div>
-    </div>
-)
+//         </div>
+//     </div>
+// )
 
 export default function Nav() {
     const [ isScrolled, setIsScrolled ] = useState(false);
@@ -86,7 +84,7 @@ export default function Nav() {
                                                 <Link
                                                     activeClass="active"
                                                     to={link}
-                                                    className="text-maroon no-underline text-lg cursor-pointer"
+                                                    className={styles.navbar__heading}
                                                     spy
                                                     smooth
                                                     duration={500}
@@ -106,7 +104,7 @@ export default function Nav() {
                                 smooth
                                 duration={750}
                             >
-                                <button className="btn-maroon cursor-pointer">
+                                <button className={styles.navbar__btn_contact}>
                                     {STRING_CONTACT}
                                 </button>
                             </Link>

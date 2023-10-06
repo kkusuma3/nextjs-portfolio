@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from "./home.module.css";
-import Projects from './Projects';
 import Navbar from '../Navbar';
 import LandingPage from './Landing';
 import HomeLayout from './Layout';
@@ -54,7 +53,6 @@ export default function Home() {
                         zIndex: -1,
                     }}
                 />
-                <hr className="border border-blue-sapphire my-2 lg:my-6"/>
                 <HomeLayout>
                     <NewProjects />
                 </HomeLayout>
