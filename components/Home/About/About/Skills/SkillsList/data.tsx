@@ -140,10 +140,6 @@ export const nonProfSkills = [
         title: 'Others',
         skillsList: [
             {
-                name: 'Jesus!',
-                icon: <FaCross />
-            },
-            {
                 name: 'Photography',
                 icon: <MdPhotoCamera />
             },

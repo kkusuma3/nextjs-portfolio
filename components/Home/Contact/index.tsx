@@ -1,7 +1,8 @@
 import { FaLinkedin } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
+import { useForm, ValidationError } from '@formspree/react';
 import { LINK_EMAIL, LINK_LINKEDIN, STRING_CONTACT, STRING_CONTACT_DESCRIPTION, STRING_EMAIL_ADDRESS, STRING_FORM_NAME, STRING_FORM_PRAYER, STRING_FORM_SUBMIT, STRING_LINKEDIN_ADDRESS, STRING_ME, STRING_PRAYER_REQUEST, STRING_PRAYER_REQUEST_DESC, STRING_WAYS_TO } from "../../../locale";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import AOS from 'aos';
 
 
@@ -9,7 +10,16 @@ const submitPrayer = input => {
 
 }
 
+const ThankYouComponent: React.FC = () => (
+    <div className="flex flex-col space-y-4">
+        <span className="text-xl font-bold">Mark 11:24 (NIV)</span>
+        <p className="text-lg">Therefore I tell you, whatever you ask for in prayer, believe that you have received it, and it will be yours.</p>
+        <p className="text-2xl py-6">Thank you for submitting your request! Your request will be prayed soon and may God bless you always! ❤️</p>
+    </div>
+)
+
 export default function Contact () {
+    const [ state, handleSubmit ] = useForm("xnqkorjl");
 
     useEffect(() => {
         AOS.init({
@@ -59,35 +69,49 @@ export default function Contact () {
                     </div>
                 </div>    
             </div>
-            
-            <div className="flex flex-col space-y-6 w-full lg:w-1/2" data-aos="fade-up">
-                <span className="text-2xl lg:text-3xl font-medium">{STRING_PRAYER_REQUEST}</span>
-                <span className="text-lg font-light">{STRING_PRAYER_REQUEST_DESC}</span>
-            </div>
-            <div className="flex flex-col space-y-6 w-full lg:w-1/2" data-aos="fade-up">
-                <div className="flex flex-col space-y-2">
-                    <span className="text-xl">{STRING_FORM_NAME}</span>
-                    <input
-                        type="text"
-                        className="p-2 rounded-lg"
-                        placeholder="Your name here"
-                    />
-                </div>
-                <div className="flex flex-col space-y-2">
-                    <span className="text-xl">{STRING_FORM_PRAYER}</span>
-                    <input
-                        type="text"
-                        className="p-2 rounded-lg"
-                        placeholder="Put your requests here!"
-                    />
-                </div>
-                <button
-                    className="w-1/3 border bg-blue-sapphire text-white hover:bg-white hover:text-blue-sapphire hover:border-blue-sapphire font-bold py-2 px-6 rounded-xl"
-                    onClick={submitPrayer}
-                >
-                    {STRING_FORM_SUBMIT}
-                </button>
-            </div>
+            <form onSubmit={handleSubmit}>
+                {  
+                    state.succeeded ?
+                    <ThankYouComponent /> :
+                    <>
+                        <div className="flex flex-col space-y-6 w-full lg:w-1/2" data-aos="fade-up">
+                            <span className="text-2xl lg:text-3xl font-medium">{STRING_PRAYER_REQUEST}</span>
+                            <span className="text-lg font-light">{STRING_PRAYER_REQUEST_DESC}</span>
+                        </div>
+                        <div className="flex flex-col space-y-6 w-full lg:w-1/2 py-4" data-aos="fade-up">
+                            <div className="flex flex-col space-y-2">
+                                <label htmlFor="name">
+                                    <span className="text-xl">{STRING_FORM_NAME}</span>
+                                </label>
+                                <input
+                                    id="name"
+                                    type="name"
+                                    name="name"
+                                    className="p-2 rounded-lg border hover:border-light-blue-sapphire"
+                                    placeholder="Your name here"
+                                />
+                            </div>
+                            <div className="flex flex-col space-y-2">
+                                <span className="text-xl">{STRING_FORM_PRAYER}</span>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    className="p-2 rounded-lg border hover:border-light-blue-sapphire"
+                                    placeholder="Put your requests here!"
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                disabled={state.submitting}
+                                className="w-1/3 border bg-blue-sapphire text-white hover:bg-white hover:text-blue-sapphire hover:border-blue-sapphire font-bold py-2 px-6 rounded-xl"
+                                onClick={submitPrayer}
+                            >
+                                {STRING_FORM_SUBMIT}
+                            </button>
+                        </div>
+                    </>
+                }
+            </form>
         </div>
     )
 }
