@@ -40,8 +40,8 @@ export default function AboutSection() {
                             Name’s Kevin, nice to meet you! 👋
                         </span>
                         <p className="text-md md:text-lg">
-                            I am a <strong>child of God ✝️</strong> who happens to be a <strong>software engineer 💻</strong>  who was born and raised in Jakarta, Indonesia and currently residing in Atlanta, GA.
-                            I love gaming 🎮 and sports ⚽ among other things but I can also <strong>take your organization to the next level 🚀</strong> and if you want to know more about my professional journey, please <i>view my resume</i> below this paragraph.
+                            I am a <strong>child of God ✝️</strong> who happens to be a <strong>software engineer 💻</strong>  who was born and raised in Jakarta, Indonesia and currently residing in Atlanta, GA. I use this space to somewhat express myself and my interests.
+                            I love gaming 🎮 and sports ⚽ among other things but I can also <strong>take your organization to the next level 🚀</strong> and if you want to know more about my professional journey, please <i>view my résumé</i> below this paragraph.
                             Other than that, I like dabbling with websites, apps and anything tech so feel free to hit me up on my socials to see more of my passion projects. In the meantime, please enjoy this page-long journey of exploring about myself!
                         </p>
                         <a
@@ -49,7 +49,7 @@ export default function AboutSection() {
                             target="_blank"
                             className="text-lg md:text-xl font-semibold border border-whte bg-blue-sapphire text-white p-2 md:p-3 hover:bg-white hover:text-blue-sapphire hover:border-blue-sapphire w-full md:w-1/2 lg:w-1/3"
                         >
-                            <span className="flex flex-row items-center justify-around">View my Resume here <AiOutlineArrowRight /></span>
+                            <span className="flex flex-row items-center justify-around">View my Résumé here <AiOutlineArrowRight /></span>
                         </a>
                     </div>   
                 </div>
