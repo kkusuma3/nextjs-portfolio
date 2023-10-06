@@ -21,20 +21,10 @@ const ProjectCard: React.FC<ProjectProps> = ( { project }: ProjectProps) => {
     const interactivity = {
         mode: "scroll",
         actions: [
-        //   {
-        //     visibility: [0, 0.2],
-        //     type: "stop",
-        //     frames: [0],
-        //   },
           {
             visibility: [0.5, 1],
             type: "play",
           },
-        //   {
-        //     visibility: [0.2, 1.0],
-        //     type: "loop",
-        //     frames: [45, 100],
-        //   },
         ],
     };
 
@@ -49,6 +39,7 @@ const ProjectCard: React.FC<ProjectProps> = ( { project }: ProjectProps) => {
                 loop
                 autoplay={isTabletOrMobile ? true : isCardHovered}
                 style={isTabletOrMobile ? undefined : style}
+                //@ts-ignore
                 interactivity={interactivity}
             />
             <div className={isCardHovered ? styles.card__overlay_hovered : styles.card__overlay}>
