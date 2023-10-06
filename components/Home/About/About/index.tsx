@@ -12,14 +12,28 @@ export default function AboutSection() {
         <div className="flex flex-col text-blue-sapphire">
             <div className="flex flex-row flex-wrap lg:flex-nowrap py-10 md:py-20 space-x-6" data-aos="zoom-out-down">
                 <div className={styles.grid__image}>
-                        <Image
-                            src="/images/About_Kevin.jpg"
+                        <picture>
+                            <img
+                                sizes="(max-width: 1290px) 100vw, 1290px"
+                                srcSet="
+                                    /images/about/about_kevin_srcset/About_Kevin_c_scale,w_190.webp 190w,
+                                    /images/about/about_kevin_srcset/About_Kevin_c_scale,w_643.webp 643w,
+                                    /images/about/about_kevin_srcset/About_Kevin_c_scale,w_906.webp 906w,
+                                    /images/about/about_kevin_srcset/About_Kevin_c_scale,w_1149.webp 1149w,
+                                    /images/about/about_kevin_srcset/About_Kevin_c_scale,w_1290.webp 1290w"
+                                src="/images/about/about_kevin_srcset/About_Kevin_c_scale,w_1290.webp"
+                                alt="Picture of Kevin Kusuma standing" 
+                                className={styles.img__kevin}
+                            />
+                        </picture>
+                        {/* <Image
+                            src="/images/about/about_kevin_srcset/.webp"
                             alt="Picture of Kevin Kusuma standing"
                             width={400}
                             height={1000}
                             quality={80}
                             className={styles.img__kevin}
-                        />
+                        /> */}
                         <div className={styles.img__background_overlay}></div>
                 </div>
                 <div className="w-full lg:w-2/3 lg:px-10">

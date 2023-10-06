@@ -32,7 +32,7 @@ export default function NewProjects() {
             <div className="flex flex-row flex-wrap justify-between">
                 {
                     ProjectsList.map(project => (
-                        <div className="py-4 md:py-8" data-aos={project.id % 2 === 0 ? "fade-right" : "fade-left"} >
+                        <div className="py-4 md:py-8" data-aos="fade-right" >
                             <ProjectCard project={project} />
                         </div>
                     ))

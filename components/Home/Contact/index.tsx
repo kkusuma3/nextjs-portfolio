@@ -31,7 +31,7 @@ export default function Contact () {
                     <span className="font-medium">{STRING_CONTACT.toLowerCase()}</span>
                     <span className="font-light">{STRING_ME}</span>
                 </div>
-                <div className="flex flex-row flex-wrap lg:space-x-20" data-aos="fade-left">
+                <div className="flex flex-row flex-wrap lg:space-x-20" data-aos="fade-up">
                     <div className="w-full lg:w-1/2">
                         <span className="text-lg lg:text-xl font-extralight">{STRING_CONTACT_DESCRIPTION}</span>
                     </div> 
@@ -60,11 +60,11 @@ export default function Contact () {
                 </div>    
             </div>
             
-            <div className="flex flex-col space-y-6 w-full lg:w-1/2" data-aos="fade-left">
+            <div className="flex flex-col space-y-6 w-full lg:w-1/2" data-aos="fade-up">
                 <span className="text-2xl lg:text-3xl font-medium">{STRING_PRAYER_REQUEST}</span>
                 <span className="text-lg font-light">{STRING_PRAYER_REQUEST_DESC}</span>
             </div>
-            <div className="flex flex-col space-y-6 w-full lg:w-1/2" data-aos="fade-down">
+            <div className="flex flex-col space-y-6 w-full lg:w-1/2" data-aos="fade-up">
                 <div className="flex flex-col space-y-2">
                     <span className="text-xl">{STRING_FORM_NAME}</span>
                     <input

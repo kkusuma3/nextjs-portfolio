@@ -8,22 +8,35 @@ import About from './About';
 import Contact from './Contact';
 import NewProjects from './Projects';
 
+const HOME_BACKGROUND_SRC_PREFIX = "/images/Landing/home_background"
+
 export default function Home() {
     return (
         <>
             <div className={styles.outerContainer}>
-                <Image
-                    src="/images/home_profile.jpg"
-                    alt="Background image of Kevin Kusuma"
-                    priority
-                    quality={100}
-                    fill
-                    sizes="100vw"
-                    style={{
-                        objectFit: 'cover',
-                        zIndex: -1,
-                    }}
-                />
+                <picture>
+                    <source 
+                        srcSet={`${HOME_BACKGROUND_SRC_PREFIX}/home_profile_sm.webp`}
+                        media="(max-width: 400px)"
+                        className={styles.background}
+                    />
+                    <source 
+                        srcSet={`${HOME_BACKGROUND_SRC_PREFIX}/home_profile_md.webp`}
+                        media="(max-width: 900px)"
+                        className={styles.background}
+                    />
+                    <Image
+                        src={`${HOME_BACKGROUND_SRC_PREFIX}/home_profile.webp`}
+                        alt="Background image of Kevin Kusuma"
+                        priority
+                        quality={100}
+                        fill
+                        style={{
+                            objectFit: 'cover',
+                            zIndex: -1,
+                        }}
+                    />
+                </picture>
                 <Navbar/>
                 <HomeLayout>
                         <LandingPage />
