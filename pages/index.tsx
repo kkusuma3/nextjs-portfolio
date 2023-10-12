@@ -12,7 +12,7 @@ export default function IndexPage() {
 
     return (
         <>
-            <Layout home isLoading={isLoading}>
+            <Layout home isLoading={isLoading} pageTitle={isLoading ? "Welcome to dev-k! Loading..." : null}>
                 { 
                     isLoading ? <LoadingPage /> : <HomePage />
                 }
