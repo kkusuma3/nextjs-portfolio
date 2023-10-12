@@ -24,14 +24,6 @@ export default function AboutSection() {
                                 className={styles.img__kevin}
                             />
                         </picture>
-                        {/* <Image
-                            src="/images/about/about_kevin_srcset/.webp"
-                            alt="Picture of Kevin Kusuma standing"
-                            width={400}
-                            height={1000}
-                            quality={80}
-                            className={styles.img__kevin}
-                        /> */}
                         <div className={styles.img__background_overlay}></div>
                 </div>
                 <div className="w-full lg:w-2/3 lg:px-10">

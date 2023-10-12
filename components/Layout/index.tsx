@@ -2,14 +2,17 @@ import Head from "next/head";
 import Nav from "../Navbar";
 import Footer from "../Footer";
 
-const name = "[Your Name]";
-export const siteTitle = "Dev-k.io - Kevin's Personal Website";
+export const siteTitle = "Dev-k.io | Kevin Kusuma's Personal Website";
 
 export default function Layout({
     home,
+    isLoading,
+    pageTitle,
     children,
 }: {
-    home: boolean;
+    home?: boolean;
+    isLoading?: boolean;
+    pageTitle?: string;
     children: React.ReactNode;
 }) {
     return (
@@ -24,20 +27,26 @@ export default function Layout({
                 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Catamaran&family=Plus+Jakarta+Sans&display=swap" rel="stylesheet" />
                 <meta
                     name="description"
-                    content="Kevin Kusuma's personal website"
+                    content="Dev-k.io - This is Kevin Kusuma's personal website"
+                />
+                <meta
+                    property="og:description"
+                    content="Dev-k.io - This is Kevin Kusuma's personal website"
+                />
+                <meta
+                    property="og:url"
+                    content="https://dev-k.io"
                 />
                 <meta
                     property="og:image"
-                    content={`https://og-image.now.sh/${encodeURI(
-                        siteTitle
-                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+                    content={`https://devk-portfolio.s3.amazonaws.com/images/home_logo.png`}
                 />
-                <meta name="og:title" content={siteTitle} />
+                <meta property="og:title" content={siteTitle} key="title"/>
             </Head>
             <div className="font-jakarta-sans">
                 { !home && <Nav /> }
                 <main>{children}</main>
-                <Footer />
+                { isLoading ? null : <Footer /> }
             </div>
         </div>
     );
