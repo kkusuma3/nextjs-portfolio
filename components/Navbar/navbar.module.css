@@ -1,7 +1,7 @@
 .navbar__heading {
     display: inline-block;
     position: relative;
-    color: #612C42;
+    color: #000;
     cursor: pointer;
     font-size: 1.125rem; /* 18px */
     line-height: 1.75rem; /* 28px */
@@ -15,7 +15,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #612C42;
+    background-color: #28536B;
     transform-origin: bottom right;
     transition: transform 0.5s ease-in-out;
 }
@@ -30,11 +30,56 @@
     padding: 0.5rem 1.5rem;
     color: white;
     font-weight: bold;
-    background-color: #612C42;
+    background-color: #28536B;
     cursor: pointer;
     transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95);
 }
 
 .navbar__btn_contact:hover {
+    transform: perspective(1px) scale3d(1.1, 1.1, 1) translateZ(0);
+}
+
+/*
+    Dark Mode for navbar headings
+*/
+
+.navbar__heading_dark {
+    display: inline-block;
+    position: relative;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+}
+
+.navbar__heading_dark::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-in-out;
+}
+
+.navbar__heading_dark:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navbar__btn_contact_dark {
+    border-radius: 0.75rem;
+    padding: 0.5rem 1.5rem;
+    color: #28536B;
+    font-weight: bold;
+    background-color: #FFF;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95);
+}
+
+.navbar__btn_contact_dark:hover {
     transform: perspective(1px) scale3d(1.1, 1.1, 1) translateZ(0);
 }

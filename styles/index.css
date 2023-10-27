@@ -16,3 +16,8 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+@layer base{
+    body {
+        @apply dark:bg-gray-700 bg-white
+    }
+}

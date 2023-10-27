@@ -6,33 +6,43 @@ import {
     STRING_CONTACT,
 } from '../../locale';
 import { headerLinks } from './data';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
+import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
+import { useTheme } from "next-themes";
 import styles from "./navbar.module.css";
 
-// const MobileNav = ( isMenuClicked ) => (
-//     <div className={isMenuClicked ? "w-full absolute md:hidden" : "w-full hidden md:hidden"}>
-//         <div className={isMenuClicked ? "bg-white flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
-//             <a href="#projects" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_PROJECTS}</a>
+const HOME_BACKGROUND_SRC = "/images/Landing/home_logo_light.png";
+const HOME_BACKGROUND_DARK_SRC = "/images/Landing/home_logo_transparent.png";
 
-//             <a href="#about" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_ABOUT}</a>
+const navClassName = (scrolled: boolean, clicked: boolean, isDarkMode: boolean, className: string): string => {
+    if (scrolled || clicked) {
+        if (!isDarkMode)
+            return "bg-white " + className;
+        else
+            return "bg-gray-800 " + className;
+    }
+    return className;
+}
 
-//             <a href="#" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_BLOG}</a>
-
-//             <a href="#contact" className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{STRING_CONTACT}</a>
-
-//         </div>
-//     </div>
-// )
+const darkModeIconsClassName = (scrolled: boolean, isDarkMode: boolean): string => {
+    if (scrolled) {
+        if (!isDarkMode)
+            return "text-black"
+        else
+            return "text-white"
+    } else {
+        if (isDarkMode)
+            return "text-white"
+        else
+            return "text-black"
+    }
+}
 
 export default function Nav() {
     const [ isScrolled, setIsScrolled ] = useState(false);
     const [ isMenuClicked, setIsMenuClicked ] = useState(false);
-
-    const navClassName = (scrolled: boolean, clicked: boolean, className: string): string => {
-        if (scrolled || clicked) {
-            return "bg-white " + className;
-        }
-        return className;
-    }
+    const { systemTheme, theme, setTheme } = useTheme();
+    const currentTheme = theme === 'system' ? systemTheme : theme;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -51,7 +61,7 @@ export default function Nav() {
             <header>
                 <nav
                     id="nav"
-                    className={navClassName(isScrolled, isMenuClicked, "transition duration-500 bg-transparent mb-5 md:mb-10 mx-auto px-6 lg:px-48 relative")}
+                    className={navClassName(isScrolled, isMenuClicked, currentTheme !== "light", "transition duration-500 bg-transparent mb-5 md:mb-10 mx-auto px-6 lg:px-48 relative")}
                 >
                     <ul className="flex flex-wrap w-full justify-between items-center px-4 md:px-8 md:mb-4">
                         <li>
@@ -65,7 +75,7 @@ export default function Nav() {
                                 duration={500}
                             >
                                 <Image
-                                    src="/images/Landing/home_logo_transparent.png"
+                                    src={currentTheme === "light" ? HOME_BACKGROUND_SRC : HOME_BACKGROUND_DARK_SRC}
                                     alt="Picture of Kevin Kusuma Logo"
                                     sizes="(max-width: 768px) 70px, 1110px"
                                     width={90}
@@ -84,7 +94,7 @@ export default function Nav() {
                                                 <Link
                                                     activeClass="active"
                                                     to={link}
-                                                    className={styles.navbar__heading}
+                                                    className={currentTheme === 'light' ? styles.navbar__heading : styles.navbar__heading_dark}
                                                     spy
                                                     smooth
                                                     duration={500}
@@ -104,10 +114,19 @@ export default function Nav() {
                                 smooth
                                 duration={750}
                             >
-                                <button className={styles.navbar__btn_contact}>
+                                <button className={currentTheme === 'light' ? styles.navbar__btn_contact : styles.navbar__btn_contact_dark}>
                                     {STRING_CONTACT}
                                 </button>
                             </Link>
+                            <div className={darkModeIconsClassName(isScrolled, currentTheme !== "light") + " flex flex-row text-xl lg:text-3xl space-x-2"}>
+                                <MdLightMode />
+                                { 
+                                    currentTheme === "light" ? 
+                                    <BsToggleOff className='cursor-pointer' onClick={() => setTheme('dark')} /> :
+                                    <BsToggleOn className='cursor-pointer' onClick={() => setTheme('light')} />
+                                }
+                                <MdDarkMode />
+                            </div>
                         </li>
                         <div className="-mr-2 flex md:hidden">
                             <button

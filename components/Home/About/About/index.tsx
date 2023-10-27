@@ -7,7 +7,7 @@ import Skills from './Skills';
 export default function AboutSection() {
 
     return (
-        <div className="flex flex-col text-blue-sapphire">
+        <div className="flex flex-col text-blue-sapphire dark:text-white">
             <div className="flex flex-row flex-wrap lg:flex-nowrap py-10 md:py-20 space-x-6" data-aos="zoom-out-down">
                 <div className={styles.grid__image}>
                         <picture>
@@ -39,7 +39,7 @@ export default function AboutSection() {
                         <a
                             href={RESUME_S3_URL}
                             target="_blank"
-                            className="text-lg md:text-xl font-semibold border border-whte bg-blue-sapphire text-white p-2 md:p-3 hover:bg-white hover:text-blue-sapphire hover:border-blue-sapphire w-full md:w-1/2 lg:w-1/3"
+                            className="text-lg md:text-xl font-semibold border border-whte bg-blue-sapphire  text-white p-2 md:p-3 hover:bg-white hover:text-blue-sapphire hover:border-blue-sapphire w-full md:w-1/2 lg:w-1/3"
                         >
                             <span className="flex flex-row items-center justify-around">View my Résumé here <AiOutlineArrowRight /></span>
                         </a>

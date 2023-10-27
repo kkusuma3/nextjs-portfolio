@@ -1,5 +1,1 @@
-<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0L1440 128V288H0V0Z" fill="#EAF2EF"/>
-<rect y="285" width="1440" height="596" fill="#EAF2EF"/>
-<path d="M0 913L1440 1009V881H0V913Z" fill="#EAF2EF"/>
-</svg>
+<svg id="visual" viewBox="0 0 960 540" width="960" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><defs><filter id="blur1" x="-10%" y="-10%" width="120%" height="120%"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="163" result="effect1_foregroundBlur"></feGaussianBlur></filter></defs><rect width="960" height="540" fill="#66A6CA"></rect><g filter="url(#blur1)"><circle cx="377" cy="45" fill="#28536B" r="363"></circle><circle cx="922" cy="245" fill="#66A6CA" r="363"></circle><circle cx="626" cy="177" fill="#28536B" r="363"></circle><circle cx="906" cy="10" fill="#28536B" r="363"></circle><circle cx="85" cy="134" fill="#66A6CA" r="363"></circle><circle cx="732" cy="353" fill="#28536B" r="363"></circle></g></svg>

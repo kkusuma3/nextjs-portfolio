@@ -1,5 +1,4 @@
 import { useEffect } from 'react'; 
-import { useMediaQuery } from 'react-responsive';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import {
@@ -9,7 +8,6 @@ import { ProjectsList } from './data';
 import ProjectCard from './ProjectCard';
 
 export default function NewProjects() {
-    const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
 
     useEffect(() => {
         AOS.init({
@@ -26,9 +24,9 @@ export default function NewProjects() {
             className="flex flex-col text-blue-sapphire"
         >
             <div className="flex flex-row space-x-2 text-3xl lg:text-5xl">
-                <span className="font-light">{STRING_STUFF_I_WORKED_ON}</span>
+                <span className="font-light text-white">{STRING_STUFF_I_WORKED_ON}</span>
             </div>
-            <hr className="border-2 rounded-md border-blue-sapphire my-2 md:my-4 w-1/6 md:w-1/12"/>
+            <hr className="border-2 rounded-md border-white my-2 md:my-4 w-1/6 md:w-1/12"/>
             <div className="flex flex-row flex-wrap justify-between">
                 {
                     ProjectsList.map(project => (

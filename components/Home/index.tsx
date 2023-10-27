@@ -6,10 +6,18 @@ import HomeLayout from './Layout';
 import About from './About';
 import Contact from './Contact';
 import NewProjects from './Projects';
+import { useTheme } from "next-themes";
 
-const HOME_BACKGROUND_SRC_PREFIX = "/images/Landing/home_background"
+const HOME_BACKGROUND_SRC_PREFIX = "/images/Landing/home_background";
+const PROJECTS_BACKGROUND_SRC = "/images/Projects_BG.svg";
+const PROJECTS_BACKGROUND_DARK_SRC = "/images/Projects_BG_Dark.svg";
+const CONTACT_BACKGROUND_SRC = "/images/Wave_BG_Contact.svg";
+const CONTACT_BACKGROUND_DARK_SRC = "/images/Wave_BG_Contact_Dark.svg";
+
 
 export default function Home() {
+    const { systemTheme, theme } = useTheme();
+    const currentTheme = theme === 'system' ? systemTheme : theme;
     return (
         <>
             <div className={styles.outerContainer}>
@@ -33,6 +41,7 @@ export default function Home() {
                         style={{
                             objectFit: 'cover',
                             zIndex: -1,
+                            filter: currentTheme === 'dark' ? 'brightness(50%)' : 'brightness(75%)',
                         }}
                     />
                 </picture>
@@ -43,9 +52,9 @@ export default function Home() {
             </div>
             <div className={styles.outerContainer}>
                 <Image
-                    src="/images/Wave_BG.svg"
+                    src={ currentTheme === 'light' ? PROJECTS_BACKGROUND_SRC : PROJECTS_BACKGROUND_DARK_SRC } 
                     alt="Wave background"
-                    quality={50}
+                    quality={55}
                     fill
                     sizes="100vw"
                     style={{
@@ -64,7 +73,7 @@ export default function Home() {
             </div>
             <div className={styles.outerContainer}>
                 <Image
-                    src="/images/Wave_BG_Contact.svg"
+                    src={ currentTheme === 'light' ? CONTACT_BACKGROUND_SRC : CONTACT_BACKGROUND_DARK_SRC } 
                     alt="Wave background"
                     quality={55}
                     sizes="100vw"

@@ -71,7 +71,7 @@ export default function LandingPage(){
                 <a 
                     href={RESUME_S3_URL}
                     target="_blank"
-                    className="border border-white bg-maroon hover:bg-gray-600 p-4 lg:py-4 lg:px-10 rounded-3xl w-full lg:w-1/4 text-md md:text-lg lg:text-xl text-center"
+                    className="border border-white bg-blue-sapphire hover:bg-light-blue-sapphire hover:text-gray-800 p-4 lg:py-4 lg:px-10 rounded-3xl w-full lg:w-1/4 text-md md:text-lg lg:text-xl text-center"
                 >
                     {STRING_BUTTON_RESUME}
                 </a>

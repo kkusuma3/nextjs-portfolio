@@ -70,6 +70,10 @@ export const professionalSkills = [
         title: 'Certifications',
         skillsList: [
             {
+                name: 'AWS Developer Associate',
+                icon: <FaAws />
+            },
+            {
                 name: 'AWS Cloud Practicioner',
                 icon: <FaAws />
             },

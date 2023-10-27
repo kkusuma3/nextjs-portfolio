@@ -5,11 +5,6 @@ import { LINK_EMAIL, LINK_LINKEDIN, STRING_CONTACT, STRING_CONTACT_DESCRIPTION, 
 import { useState, useEffect } from "react";
 import AOS from 'aos';
 
-
-const submitPrayer = input => {
-
-}
-
 const ThankYouComponent: React.FC = () => (
     <div className="flex flex-col space-y-4">
         <span className="text-xl font-bold">Mark 11:24 (NIV)</span>
@@ -33,7 +28,7 @@ export default function Contact () {
     return (
         <div
             id="contact"
-            className="flex flex-col text-blue-sapphire space-y-10 lg:space-y-8 py-6 h-full md:h-screen place-content-center"
+            className="flex flex-col text-white space-y-10 lg:space-y-8 py-6 h-full md:h-screen place-content-center"
         >
             <div className="flex flex-col space-y-6">
                 <div className="flex flex-row space-x-2 text-3xl lg:text-5xl" data-aos="slide-up">
@@ -45,9 +40,9 @@ export default function Contact () {
                     <div className="w-full lg:w-1/2">
                         <span className="text-lg lg:text-xl font-extralight">{STRING_CONTACT_DESCRIPTION}</span>
                     </div> 
-                    <div className="flex flex-col space-y-2 py-2 lg:py-0 lg:px-4 text-blue-sapphire text-lg lg:text-xl">
+                    <div className="flex flex-col space-y-2 py-2 lg:py-0 lg:px-4 text-lg lg:text-xl">
                         <a
-                            className="p-1 hover:text-black"
+                            className="p-1 hover:text-black dark:hover:text-light-blue-sapphire"
                             href={LINK_EMAIL}
                             target="blank"
                         >
@@ -57,7 +52,7 @@ export default function Contact () {
                             </div>
                         </a>
                         <a
-                            className="p-1 hover:text-black"
+                            className="p-1 hover:text-black dark:hover:text-light-blue-sapphire"
                             href={LINK_LINKEDIN}
                             target="blank"
                         >
@@ -87,7 +82,7 @@ export default function Contact () {
                                     id="name"
                                     type="name"
                                     name="name"
-                                    className="p-2 rounded-lg border hover:border-light-blue-sapphire"
+                                    className="p-2 rounded-lg border hover:border-light-blue-sapphire dark:text-white"
                                     placeholder="Your name here"
                                 />
                             </div>
@@ -96,15 +91,16 @@ export default function Contact () {
                                 <textarea
                                     id="message"
                                     name="message"
-                                    className="p-2 rounded-lg border hover:border-light-blue-sapphire"
+                                    className="p-2 rounded-lg border hover:border-light-blue-sapphire dark:text-white"
                                     placeholder="Put your requests here!"
                                 />
                             </div>
                             <button
                                 type="submit"
                                 disabled={state.submitting}
-                                className="w-1/3 border bg-blue-sapphire text-white hover:bg-white hover:text-blue-sapphire hover:border-blue-sapphire font-bold py-2 px-6 rounded-xl"
-                                onClick={submitPrayer}
+                                className="w-1/3 border bg-blue-sapphire dark:bg-white text-white dark:text-blue-sapphire hover:bg-white 
+                                dark:hover:bg-light-blue-sapphire hover:text-blue-sapphire dark:hover:text-white hover:border-blue-sapphire 
+                                dark:hover:border-white font-bold py-2 px-6 rounded-xl"
                             >
                                 {STRING_FORM_SUBMIT}
                             </button>

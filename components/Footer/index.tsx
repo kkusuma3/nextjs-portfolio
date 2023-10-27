@@ -7,7 +7,7 @@ export default function Footer () {
     return (
         <div className="grid py-5 place-items-center">
             <div className={styles.mainContainer}>
-                <footer className="flex flex-row flex-wrap items-end justify-between lg:py-2 px-4 space-y-6 lg:space-y-0 text-blue-sapphire">
+                <footer className="flex flex-row flex-wrap items-end justify-between lg:py-2 px-4 space-y-6 lg:space-y-0 text-blue-sapphire dark:text-white">
                     <div className="w-full lg:w-3/4">
                         <span className="font-extralight text-md md:text-lg">
                             {STRING_COPYRIGHT}
