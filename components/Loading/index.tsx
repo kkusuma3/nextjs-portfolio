@@ -43,6 +43,11 @@ export default function Loading () {
         >
             <animated.div style={bgProps}>
                 <picture>
+                    <source 
+                        srcSet={`${LOADING_BACKGROUND_SRC}/Loading_background_sm.webp`}
+                        media="(max-width: 400px)"
+                        className={styles.img__background}
+                    />
                     <img
                         sizes="(max-width: 1400px) 100vw, 1400px"
                         srcSet={`
@@ -74,7 +79,7 @@ export default function Loading () {
                     />
                 </picture>
             </animated.div>
-            <h1 className="text-5xl font-bold text-blue-sapphire">Loading{loadingDots}</h1>
+            <h1 className="text-5xl font-bold text-light-blue-sapphire">Loading{loadingDots}</h1>
         </div>
     )
 }

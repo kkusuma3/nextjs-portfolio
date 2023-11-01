@@ -8,6 +8,7 @@ import {
 import { headerLinks } from './data';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { useTheme } from "next-themes";
 import styles from "./navbar.module.css";
 
@@ -29,10 +30,10 @@ const darkModeIconsClassName = (scrolled: boolean, isDarkMode: boolean): string 
         if (!isDarkMode)
             return "text-black"
         else
-            return "text-white"
+            return "text-light-blue-sapphire"
     } else {
         if (isDarkMode)
-            return "text-white"
+            return "text-light-blue-sapphire"
         else
             return "text-black"
     }
@@ -129,30 +130,22 @@ export default function Nav() {
                             </div>
                         </li>
                         <div className="-mr-2 flex md:hidden">
-                            <button
-                                className="bg-transparent inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
+                            <span
+                                className="bg-transparent inline-flex items-center justify-center p-2 rounded-md text-black dark:text-light-blue-sapphire focus:outline-none"
                                 onClick={() => setIsMenuClicked(!isMenuClicked)}
                             >
-                                <span className="sr-only">Open main menu</span>
-
-                                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#612C42" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
-
-                                <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#612C42" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
+                                <GiHamburgerMenu />
+                            </span>
                         </div>
                     </ul>
                     <div className={isMenuClicked ? "w-full absolute left-0 md:hidden" : "w-full hidden"}>
-                        <ul className={isMenuClicked ? "bg-white flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500 w-full" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
+                        <ul className={isMenuClicked ? "bg-white dark:bg-gray-800 flex flex-col px-4 py-2 space-y-1 sm:px-3 transition duration-500 w-full" : "flex flex-col px-4 py-2 space-y-1 sm:px-3"}>
                             {headerLinks.map(({ label, link }) => (
                                 <li key={label}>
                                     <Link
                                         activeClass="active"
                                         to={link}
-                                        className="text-maroon hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                        className="text-blue-sapphire dark:text-light-blue-sapphire hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                         spy
                                         smooth
                                         duration={700}

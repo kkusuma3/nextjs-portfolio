@@ -10,7 +10,7 @@ import { useTheme } from "next-themes";
 
 const HOME_BACKGROUND_SRC_PREFIX = "/images/Landing/home_background";
 const PROJECTS_BACKGROUND_SRC = "/images/Projects_BG.svg";
-const PROJECTS_BACKGROUND_DARK_SRC = "/images/Projects_BG_Dark.svg";
+const PROJECTS_BACKGROUND_DARK_SRC = "/images/Projects_BG_Dark_2.svg";
 const CONTACT_BACKGROUND_SRC = "/images/Wave_BG_Contact.svg";
 const CONTACT_BACKGROUND_DARK_SRC = "/images/Wave_BG_Contact_Dark.svg";
 
