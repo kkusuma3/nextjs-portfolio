@@ -45,7 +45,7 @@ export default function Loading () {
                 <picture>
                     <source 
                         srcSet={`${LOADING_BACKGROUND_SRC}/Loading_background_sm.webp`}
-                        media="(max-width: 400px)"
+                        media="(max-width: 500px)"
                         className={styles.img__background}
                     />
                     <img
